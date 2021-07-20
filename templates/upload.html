@@ -1,0 +1,20 @@
+{% load static %}
+{% static "images" as baseUrl %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Siebel Log Analyzer</title>
+    <body background="{% static 'images/uploadimage.jpg' %}"></body>
+</head>
+<body>
+    <div class="container">
+        <form method="post" action="analyze" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type="file" name="myfile">
+            <button id = "analyze" type="submit">Analyze</button>
+        </form>
+    </div>
+
+</body>
+</html>

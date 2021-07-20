@@ -1,0 +1,55 @@
+body
+{
+    background: #eb4559;
+}
+.container
+{
+    top:50%
+    left:50%
+    transform:translate(-50%,-50%);
+    position:absolute;
+}
+
+.upload-box
+{
+    margin-top:300px;
+    margin-left:600px;
+    font-size:20px;
+    background:white;
+    border-radius:50px;
+    box-shadow:5px 5px 10px black;
+    width:auto;
+    outline:none;
+}
+.analyze-box
+{
+    color:white;
+    background:#206a5d;
+    padding:20px;
+    font-size:20px;
+    border:none;
+    border-radius:50px;
+    box-shadow:1px 0 1px 1px #6b4559;
+    outline: none;
+}
+
+.analyze-box:hover
+{
+    background:#438a5e;
+}
+
+::-webkit-file-upload-button
+{
+    color:white;
+    background:#206a5d;
+    padding:20px;
+    border:none;
+    border-radius:50px;
+    box-shadow:1px 0 1px 1px #6b4559;
+    outline: none;
+}
+
+::-webkit-file-upload-button:hover
+{
+    background:#438a5e;
+}

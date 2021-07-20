@@ -1,0 +1,58 @@
+{% load static %}
+{% static "images" as baseUrl %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Siebel Log Analyzer Result</title>
+    <body background="{% static 'images/uploadimage.jpg' %}"></body>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <form method="post">
+        {% csrf_token %}
+        <button id = "home" type="submit" formaction= "home" class="analyze-box">Home</button>
+    </form>
+    <h1>Maximum Time:</h1>
+    <table style="width:50%">
+        <tr>
+            <td><h2>Type</h2></td>
+            <td><h2>Id</h2></td>
+            <td><h2>Time</h2></td>
+        </tr>
+        <tr>
+            <td><h3>Initial Fetch Time</h3></td>
+            <td><h3>{{ifetch_id}}</h3></td>
+            <td><h3>{{ifetch_time}}</h3></td>
+        </tr>
+        <tr>
+            <td><h3>Prepare Time</h3></td>
+            <td><h3>{{pre_id}}</h3></td>
+            <td><h3>{{pre_time}}</h3></td>
+        </tr>
+        <tr>
+            <td><h3>Execution Time</h3></td>
+            <td><h3>{{exe_id}}</h3></td>
+            <td><h3>{{exe_time}}</h3></td>
+        </tr>
+    </table>
+    <br><br>
+    <div class="container">
+        <form method="post">
+            {% csrf_token %}
+            <button id = "executiontime" type = "submit" class="analyze-box" formaction="executiontime">Execution Time</button>
+            <button id = "initialfetchtime" type = "submit" class="analyze-box" formaction="initialfetchtime">Initial Fetch Time</button>
+            <button id = "preparetime" type = "submit" class="analyze-box" formaction="preparetime">Prepare Time</button>
+            <button id = "fetchinsertupdate" type = "submit" class="analyze-box" formaction="fetchinsertupdate">Fetch Insert/Update Sql</button>
+            <button id = "evntcntxt" type = "submit" class="analyze-box" formaction="evntcntxt">Event Context</button>
+        </form>
+        <form method="post">
+            {% csrf_token %}
+            <br><h3>Enter Cursor Id : <input type="text", name = "CursorId" required>
+            <button id = "fetchsql" type="submit" formaction= "fetchsql" class="analyze-box">Fetch Query</button></h3>
+        </form>
+        {% if sql %}
+        {{sql|linebreaks}}
+        {% endif %}
+    </div>
+</body>
+</html>
